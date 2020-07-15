@@ -10,12 +10,19 @@ app.get('/login', function(req, res) {
   res.sendFile('login.html', {root: __dirname});
 });
 
-app.get('/resgister.html', function (req, res) {
+app.get('/register', function (req, res) {
   res.sendFile('register.html', { root: __dirname });
 });
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.post('/doLogin', function(req, res) {
+  const name = req.body.usr;
+  const pass = req.body.pwsr;
+
+  res.send(`Hello ${name} your pass is ${pass}`);
+});
+
+app.post('/doRegister', function (req, res) {
   const name = req.body.usr;
   const pass = req.body.pwsr;
 
