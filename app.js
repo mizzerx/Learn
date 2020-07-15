@@ -36,7 +36,7 @@ app.get('/note', function(req, res) {
 
 app.post('/takeNote', function(req, res) {
   const note = req.body.note;
-  const writeNote = Date() + "\n" + note;
+  const writeNote = Date() + "\n" + note + "\n";
   fs.appendFile('note.txt', writeNote, function(err, data) {
     if (err) res.send('Write fail');
     else res.send('Wite success');
